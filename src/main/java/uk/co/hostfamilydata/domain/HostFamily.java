@@ -25,6 +25,7 @@ public class HostFamily {
     @Lob
     private String notes;
     private boolean confirmed;
+    private String whatToShow;
     private String email;
     private String profession;
     private String profession2;

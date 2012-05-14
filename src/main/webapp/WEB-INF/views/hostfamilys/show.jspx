@@ -21,5 +21,6 @@
         <field:display field="profession2" id="s_uk_co_hostfamilydata_domain_HostFamily_profession2" object="${hostfamily}" z="OgD4zUoXp0bSLocjXuIvzA82z9E="/>
         <field:display field="childrenAndTheirDOBs" id="s_uk_co_hostfamilydata_domain_HostFamily_childrenAndTheirDOBs" object="${hostfamily}" z="K3CXccsRjUxXOkcBO+LusubhcN0="/>
         <field:display field="students" id="s_uk_co_hostfamilydata_domain_HostFamily_students" object="${hostfamily}" z="pWe+V8BJTWFWLmKctAioxlQV6tM="/>
+        <field:display field="whatToShow" id="s_uk_co_hostfamilydata_domain_HostFamily_whatToShow" object="${hostfamily}" z="oxY5nqTYO9SNUrjA9utg8VFUli0="/>
     </page:show>
 </div>

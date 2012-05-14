@@ -14,12 +14,13 @@
         <field:input field="phone" id="c_uk_co_hostfamilydata_domain_HostFamily_phone" z="DPte3kkHf8kgFSbew8705NJjn3Y="/>
         <field:input field="phone2" id="c_uk_co_hostfamilydata_domain_HostFamily_phone2" z="wa3lg0JHFQlnjVZUrBXEBPWSau8="/>
         <field:input field="numberOfStudents" id="c_uk_co_hostfamilydata_domain_HostFamily_numberOfStudents" z="3jsPSdznv9J1Q4mOw5tcUSXcwsw="/>
-        <field:input field="notes" id="c_uk_co_hostfamilydata_domain_HostFamily_notes" z="CoY1wIHNv0UFlf1yOX1u/VwPvZM="/>
+        <field:textarea field="notes" id="c_uk_co_hostfamilydata_domain_HostFamily_notes" z="HBCbiD/Ca+QL6wMZG6X8L8zAP/Y="/>
         <field:checkbox field="confirmed" id="c_uk_co_hostfamilydata_domain_HostFamily_confirmed" z="nyIl8htszzGs3nUpXkr4vgXOouE="/>
         <field:input field="email" id="c_uk_co_hostfamilydata_domain_HostFamily_email" validationMessageCode="field_invalid_email" z="HWdAagt3qlg/m+wxw+/PsNasv3o="/>
         <field:input field="profession" id="c_uk_co_hostfamilydata_domain_HostFamily_profession" z="6ZknfnW+NFgYT0cX3iSRwWNgEMg="/>
         <field:input field="profession2" id="c_uk_co_hostfamilydata_domain_HostFamily_profession2" z="3wkA/laWTCVRdI9uGTrcBUJ/qJc="/>
-        <field:input field="childrenAndTheirDOBs" id="c_uk_co_hostfamilydata_domain_HostFamily_childrenAndTheirDOBs" z="zVYUked9reGYVn7Wk2PUR6kvpqI="/>
-        <field:input field="students" id="c_uk_co_hostfamilydata_domain_HostFamily_students" z="wqPJpVSEeDinWpisq0NfdVuQ9N8="/>
+        <field:textarea field="childrenAndTheirDOBs" id="c_uk_co_hostfamilydata_domain_HostFamily_childrenAndTheirDOBs" z="ixL0fu5r888eIJ5oN1fU4p31izc="/>
+        <field:textarea field="students" id="c_uk_co_hostfamilydata_domain_HostFamily_students" z="6cBHVZCYX6Oez9wY5Qi7UwkE4f4="/>
+        <field:input field="whatToShow" id="c_uk_co_hostfamilydata_domain_HostFamily_whatToShow" z="7t9/f3S7uUDEvIgBVBfR4Y1LOqI="/>
     </form:update>
 </div>

@@ -111,6 +111,14 @@ privileged aspect HostFamily_Roo_JavaBean {
         this.confirmed = confirmed;
     }
     
+    public String HostFamily.getWhatToShow() {
+        return this.whatToShow;
+    }
+    
+    public void HostFamily.setWhatToShow(String whatToShow) {
+        this.whatToShow = whatToShow;
+    }
+    
     public String HostFamily.getEmail() {
         return this.email;
     }
