@@ -1,0 +1,18 @@
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-05-13 22:16:27
+hint
+project --topLevelPackage uk.co.hostfamilydata
+hint
+jpa setup --provider HIBERNATE --database MYSQL --databaseName hostfamilydata --userName hostfamilydata --password hostfamilydata --hostName localhost
+hint
+entity jpa --class uk.co.hostfamilydata.domain.HostFamily
+exit
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log closed at 2012-05-13 22:21:11
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-05-13 22:31:05
+hint
+hint web mvc
+web mvc setup
+web mvc all --package uk.co.hostfamilydata.web
+security setup
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-05-14 21:42:10
+exit
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log closed at 2012-05-14 22:13:16
