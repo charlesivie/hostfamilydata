@@ -25,7 +25,10 @@ privileged aspect HostFamily_Roo_Jpa_ActiveRecord {
     }
     
     public static List<HostFamily> HostFamily.findAllHostFamilys() {
-        return entityManager().createQuery("SELECT o FROM HostFamily o", HostFamily.class).getResultList();
+        return entityManager().createQuery(
+                "SELECT o FROM HostFamily o order by o.firstName asc",
+                HostFamily.class
+        ).getResultList();
     }
     
     public static HostFamily HostFamily.findHostFamily(Long id) {
@@ -34,7 +37,7 @@ privileged aspect HostFamily_Roo_Jpa_ActiveRecord {
     }
     
     public static List<HostFamily> HostFamily.findHostFamilyEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM HostFamily o", HostFamily.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+        return entityManager().createQuery("SELECT o FROM HostFamily o order by o.firstName asc", HostFamily.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @Transactional
