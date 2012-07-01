@@ -70,6 +70,6 @@
     </bean>
 
     <bean class="java.net.URI" id="dbUrl">
-        <constructor-arg value="${XEROUND_DATABASE_URL}"/>
+        <constructor-arg value="${HOSTFAMILYDATA_DATABASE_URL}"/>
     </bean>
 </beans>
