@@ -3,13 +3,7 @@
 
 package uk.co.hostfamilydata.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Version;
-import uk.co.hostfamilydata.domain.HostFamily;
+import javax.persistence.*;
 
 privileged aspect HostFamily_Roo_Jpa_Entity {
     
@@ -20,10 +14,7 @@ privileged aspect HostFamily_Roo_Jpa_Entity {
     @Column(name = "id")
     private Long HostFamily.id;
     
-    @Version
-    @Column(name = "version")
-    private Integer HostFamily.version;
-    
+
     public Long HostFamily.getId() {
         return this.id;
     }
@@ -31,13 +22,5 @@ privileged aspect HostFamily_Roo_Jpa_Entity {
     public void HostFamily.setId(Long id) {
         this.id = id;
     }
-    
-    public Integer HostFamily.getVersion() {
-        return this.version;
-    }
-    
-    public void HostFamily.setVersion(Integer version) {
-        this.version = version;
-    }
-    
+
 }
