@@ -89,9 +89,10 @@
         <servlet-name>hostfamilydata</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-    
+
     <session-config>
-        <session-timeout>10</session-timeout>
+        <!-- Session timeout in minutes 12 * 60 -->
+        <session-timeout>720</session-timeout>
     </session-config>
     
     <error-page>
