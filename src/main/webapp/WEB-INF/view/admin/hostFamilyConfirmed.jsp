@@ -7,7 +7,7 @@
 
 <html>
 <jsp:include page="head.jsp"/>
-<body>
+<body onload="initialize('${hostFamily.postCode}')" onunload="GUnload()">
 <jsp:include page="nav.jsp"/>
 
 
@@ -110,7 +110,11 @@
                     <div class="span2">
                         <div>
                             <c:if test="${hostFamily.id > 0}">
-                                <a data-toggle="modal" href="#mapModal" class="btn secondary span9" id="mapModalLink">map</a>
+                                <a data-toggle="modal"
+                                   href="#mapModal"
+                                   class="btn secondary span9"
+                                   id="mapModalLink"
+                                        onclick="doSomething()">map</a>
                             </c:if>
                         </div>
                     </div>
@@ -140,7 +144,7 @@
                 for ${hostFamily.firstName} ${hostFamily.lastName} ${hostFamily.postCode}</h3>
         </div>
 
-        <div id="map_canvas" style="width:100%; height:100%"></div>
+        <div id="map" style="width: 500px; height: 300px"></div>
 
         <div class="modal-footer">
             <div class="span4">
