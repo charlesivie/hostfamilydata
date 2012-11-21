@@ -16,9 +16,11 @@
 
         <div class="span3">
 
-            <div style="padding-bottom: 24px;">
-                <a href="<c:url value="/hostFamily"/>" class="btn btn-primary btn-large">new Host Family</a>
-            </div>
+            <c:if test="${hostFamily.id > 0}">
+                <div style="padding-bottom: 24px;">
+                    <a href="<c:url value="/"/>" class="btn btn-primary btn-large">new host family</a>
+                </div>
+            </c:if>
             <div class="well sidebar-nav">
 
                 <ul class="nav nav-list">
@@ -26,7 +28,9 @@
                     <li class="nav-header">Host Families...</li>
 
                     <c:forEach items="${hostFamilies}" var="hostFamily">
-                        <li><a href="<c:url value="/admin/hostFamily/${hostFamily.id}" />">${hostFamily.name}</a></li>
+                        <li>
+                            <a href="<c:url value="/hostFamily/${hostFamily.id}" />">${hostFamily.firstName}, ${hostFamily.lastName}, ${hostFamily.phone}</a>
+                        </li>
                     </c:forEach>
 
                 </ul>
@@ -34,15 +38,17 @@
         </div>
 
         <form:form commandName="hostFamily" method="" cssClass="span9 well" enctype="multipart/form-data">
-            <legend>${hostFamily.id>0?'Edit ':'Insert New '} ${hostFamily.name}</legend>
+            <legend>
+                ${hostFamily.id>0?'Edit ':'Insert New '} ${hostFamily.firstName} ${hostFamily.lastName}
+                <c:if test="${hostFamily.id > 0}">
+                    <a data-toggle="modal" href="#mapModal" class="btn secondary btn-small">show map</a>
+                </c:if>
+            </legend>
             <fieldset>
                 <div class="span4">
 
                     <form:hidden path="id"/>
 
-                    <div>
-                        <a data-toggle="modal" href="#mapModal" class="btn secondary btn-large">show map</a>
-                    </div>
 
                     <form:label path="firstName">first name</form:label>
                     <form:input cssClass="span12" path="firstName" label="firstName"/>
@@ -139,7 +145,8 @@
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal"
                     aria-hidden="true">&times;</button>
-            <h3 id="deleteModalLabel">deleting host family ${hostFamily.firstName} ${hostFamily.secondName} ${hostFamily.firstName2} ${hostFamily.secondName2}</h3>
+            <h3 id="deleteModalLabel">deleting host
+                family ${hostFamily.firstName} ${hostFamily.lastName} ${hostFamily.firstName2} ${hostFamily.lastName2}</h3>
         </div>
         <div class="modal-body">
             are you sure? this cannot be un-done.
@@ -169,7 +176,8 @@
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal"
                     aria-hidden="true">&times;</button>
-            <h3 id="mapModalLabel">showing map for ${hostFamily.firstName} ${hostFamily.secondName} ${hostFamily.postCode}</h3>
+            <h3 id="mapModalLabel">showing map
+                for ${hostFamily.firstName} ${hostFamily.lastName} ${hostFamily.postCode}</h3>
         </div>
         <div class="modal-footer">
             <div class="span4">

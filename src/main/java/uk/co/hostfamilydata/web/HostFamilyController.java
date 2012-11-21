@@ -34,7 +34,7 @@ public class HostFamilyController {
 		return modelAndView;
 	}
 
-	@RequestMapping(value = {"/hostFamily", "/"}, method = RequestMethod.GET)
+	@RequestMapping(value = "/hostFamily", method = RequestMethod.GET)
 	public ModelAndView get() {
 		ModelAndView modelAndView = new ModelAndView("admin/hostFamily", "hostFamily", new HostFamily());
 		modelAndView.addObject("hostFamilies", hostFamilyRepository.findAll());
@@ -57,7 +57,7 @@ public class HostFamilyController {
 	@RequestMapping(value = "/hostFamily/{id}", method = RequestMethod.DELETE)
 	public ModelAndView delete(@PathVariable("id") long id) {
 		hostFamilyRepository.delete(id);
-		return new ModelAndView("redirect:/admin/hostFamily");
+		return new ModelAndView("redirect:/hostFamily");
 	}
 
 }

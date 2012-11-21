@@ -15,7 +15,7 @@
                     Logged in as <a href="#" class="navbar-link">Administrator</a>
                 </p>
                 <ul class="nav">
-                    <li><a href="<c:url value="/admin/family" />">host families</a></li>
+                    <li><a href="<c:url value="/hostFamily" />">host families</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
