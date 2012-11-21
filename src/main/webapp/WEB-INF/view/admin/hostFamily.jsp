@@ -17,7 +17,7 @@
         <div class="span3">
 
             <div style="padding-bottom: 24px;">
-                <a href="<c:url value="/admin/hostFamily"/>" class="btn btn-primary btn-large">new Host Family</a>
+                <a href="<c:url value="/hostFamily"/>" class="btn btn-primary btn-large">new Host Family</a>
             </div>
             <div class="well sidebar-nav">
 
@@ -150,7 +150,7 @@
                 <button class="btn secondary" data-dismiss="modal">cancel</button>
             </div>
             <div class="span1">
-                <form id="deleteMe" name="deleteMe" action="/admin/hostFamily/${hostFamily.id}" method="post">
+                <form id="deleteMe" name="deleteMe" action="/hostFamily/${hostFamily.id}" method="post">
                     <input type="hidden" name="_method" value="DELETE"/>
                     <button type="submit" class="btn btn-primary">delete</button>
                 </form>

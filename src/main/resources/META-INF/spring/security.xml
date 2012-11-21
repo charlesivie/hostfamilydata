@@ -8,14 +8,13 @@
 
     <http use-expressions="true">
         <intercept-url pattern="/admin/**" access="isAuthenticated()"/>
-        <intercept-url pattern="/**" access="permitAll()" />
         <form-login />
     </http>
 
     <authentication-manager>
         <authentication-provider>
             <user-service>
-                <user name="user" password="${SPRING_SECURITY_PASSWORD}" authorities="${SPRING_SECURITY_USER}"/>
+                <user name="${SPRING_SECURITY_USER}" password="${SPRING_SECURITY_PASSWORD}" authorities="ROLE_SUPERVISOR" />
             </user-service>
         </authentication-provider>
     </authentication-manager>

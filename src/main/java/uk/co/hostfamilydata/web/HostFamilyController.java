@@ -16,7 +16,6 @@ import uk.co.hostfamilydata.domain.HostFamily;
 import javax.validation.Valid;
 import java.io.IOException;
 
-@RequestMapping("/admin")
 @Controller
 public class HostFamilyController {
 
@@ -35,7 +34,7 @@ public class HostFamilyController {
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/hostFamily", method = RequestMethod.GET)
+	@RequestMapping(value = {"/hostFamily", "/"}, method = RequestMethod.GET)
 	public ModelAndView get() {
 		ModelAndView modelAndView = new ModelAndView("admin/hostFamily", "hostFamily", new HostFamily());
 		modelAndView.addObject("hostFamilies", hostFamilyRepository.findAll());
