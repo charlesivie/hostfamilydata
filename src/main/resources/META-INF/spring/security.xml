@@ -8,7 +8,7 @@
 
     <http use-expressions="true">
         <intercept-url pattern="/**" access="isAuthenticated()"/>
-        <form-login />
+        <form-login default-target-url="/" always-use-default-target="true"/>
     </http>
 
     <authentication-manager>

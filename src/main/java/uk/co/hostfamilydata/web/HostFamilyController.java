@@ -41,6 +41,26 @@ public class HostFamilyController {
 		return modelAndView;
 	}
 
+
+    @RequestMapping(value = "/hostFamily/confirmed/{id}", method = RequestMethod.GET)
+    public ModelAndView getConfirmed(@PathVariable("id") long id) {
+
+        ModelAndView modelAndView = new ModelAndView("admin/hostFamilyConfirmed");
+        HostFamily hostFamily = hostFamilyRepository.findOne(id);
+
+        modelAndView.addObject("hostFamily", hostFamily);
+        modelAndView.addObject("hostFamilies", hostFamilyRepository.findByConfirmed(true));
+
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/hostFamily/confirmed", method = RequestMethod.GET)
+    public ModelAndView getConfirmed() {
+        ModelAndView modelAndView = new ModelAndView("admin/hostFamilyConfirmed", "hostFamily", new HostFamily());
+        modelAndView.addObject("hostFamilies", hostFamilyRepository.findByConfirmed(true));
+        return modelAndView;
+    }
+
 	@RequestMapping(value = {"/hostFamily", "/hostFamily/{id}"}, method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public String post(@Valid HostFamily hostFamily, BindingResult result, Model model) throws IOException {
@@ -53,6 +73,8 @@ public class HostFamilyController {
 
 		return "/admin/hostFamily";
 	}
+
+
 
 	@RequestMapping(value = "/hostFamily/{id}", method = RequestMethod.DELETE)
 	public ModelAndView delete(@PathVariable("id") long id) {

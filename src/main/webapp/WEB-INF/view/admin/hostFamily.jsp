@@ -14,7 +14,7 @@
 <div class="container-fluid">
     <div class="row-fluid">
 
-        <div class="span3">
+        <div class="span4">
 
             <c:if test="${hostFamily.id > 0}">
                 <div style="padding-bottom: 24px;">
@@ -29,7 +29,9 @@
 
                     <c:forEach items="${hostFamilies}" var="hostFamily">
                         <li>
-                            <a href="<c:url value="/hostFamily/${hostFamily.id}" />">${hostFamily.firstName}, ${hostFamily.lastName}, ${hostFamily.phone}</a>
+                            <a href="<c:url value="/hostFamily/${hostFamily.id}" />">
+                                    ${hostFamily.firstName}, ${hostFamily.lastName}, ${hostFamily.phone} - ${hostFamily.firstName2}, ${hostFamily.lastName2}, ${hostFamily.phone2}
+                            </a>
                         </li>
                     </c:forEach>
 
@@ -37,44 +39,50 @@
             </div>
         </div>
 
-        <form:form commandName="hostFamily" method="" cssClass="span9 well" enctype="multipart/form-data">
+        <form:form commandName="hostFamily" cssClass="span8 well">
             <legend>
-                ${hostFamily.id>0?'Edit ':'Insert New '} ${hostFamily.firstName} ${hostFamily.lastName}
-                <c:if test="${hostFamily.id > 0}">
-                    <a data-toggle="modal" href="#mapModal" class="btn secondary btn-small">show map</a>
-                </c:if>
+                    ${hostFamily.id>0?'Edit ':'Insert New '} ${hostFamily.firstName} ${hostFamily.lastName}
             </legend>
             <fieldset>
-                <div class="span4">
 
-                    <form:hidden path="id"/>
+                <form:hidden path="id"/>
 
+                <div class="span9">
 
-                    <form:label path="firstName">first name</form:label>
-                    <form:input cssClass="span12" path="firstName" label="firstName"/>
+                    <div class="span12">
+                        <div>
+                            <div class="span4">
+                                <form:label path="firstName">first name</form:label>
+                                <form:input cssClass="span12" path="firstName" label="firstName"/>
+                            </div>
+                            <div class="span4">
+                                <form:label path="lastName">last name</form:label>
+                                <form:input cssClass="span12" path="lastName" label="lastName"/>
+                            </div>
+                            <div class="span4">
+                                <form:label path="profession">profession</form:label>
+                                <form:input cssClass="span12" path="profession" label="profession"/>
+                            </div>
+                        </div>
 
-                    <form:label path="lastName">last name</form:label>
-                    <form:input cssClass="span12" path="lastName" label="lastName"/>
-
-                    <form:label path="profession">profession</form:label>
-                    <form:input cssClass="span12" path="profession" label="profession"/>
-
-                    <form:label path="firstName2">first name</form:label>
-                    <form:input cssClass="span12" path="firstName2" label="firstName2"/>
-
-                    <form:label path="lastName2">last name</form:label>
-                    <form:input cssClass="span12" path="lastName2" label="lastName2"/>
-
-                    <form:label path="profession2">profession</form:label>
-                    <form:input cssClass="span12" path="profession2" label="profession2"/>
-
+                        <div>
+                            <div class="span4">
+                                <form:label path="firstName2">first name</form:label>
+                                <form:input cssClass="span12" path="firstName2" label="firstName2"/>
+                            </div>
+                            <div class="span4">
+                                <form:label path="lastName2">last name</form:label>
+                                <form:input cssClass="span12" path="lastName2" label="lastName2"/>
+                            </div>
+                            <div class="span4">
+                                <form:label path="profession2">profession</form:label>
+                                <form:input cssClass="span12" path="profession2" label="profession2"/>
+                            </div>
+                        </div>
+                    </div>
                     <form:label path="address">Address</form:label>
                     <form:input cssClass="span12" path="address" label="address"/>
-
-                    <form:label path="address2">&nbsp;</form:label>
                     <form:input cssClass="span12" path="address2" label="address2"/>
-
-                    <form:label path="address3">&nbsp;</form:label>
                     <form:input cssClass="span12" path="address3" label="address3"/>
 
                     <form:label path="postCode">post code</form:label>
@@ -82,21 +90,15 @@
 
                     <form:label path="phone">phone numbers</form:label>
                     <form:input cssClass="span12" path="phone" label="phone"/>
-
-                    <form:label path="phone2">&nbsp;</form:label>
                     <form:input cssClass="span12" path="phone2" label="phone2"/>
 
+
                     <form:label path="numberOfStudents">number of students</form:label>
-                    <form:input cssClass="span12" path="numberOfStudents" label="numberOfStudents"/>
+                    <form:input cssClass="span2" path="numberOfStudents" label="numberOfStudents"/>
 
                     <form:label path="notes">notes</form:label>
                     <form:textarea cssClass="span12" path="notes" label="notes"/>
 
-                    <form:label path="confirmed">confirmed?</form:label>
-                    <form:checkbox cssClass="span12" path="confirmed" label="confirmed"/>
-
-                    <form:label path="email">email address</form:label>
-                    <form:input cssClass="span12" path="email" label="email"/>
 
                     <form:label path="email">email address</form:label>
                     <form:input cssClass="span12" path="email" label="email"/>
@@ -110,6 +112,18 @@
                     <form:label path="whatToShow">what to show</form:label>
                     <form:input cssClass="span12" path="whatToShow" label="whatToShow"/>
 
+                </div>
+
+                <div class="span2">
+                    <div>
+                        <form:label path="confirmed" cssClass="span6">confirmed </form:label>
+                        <form:checkbox path="confirmed" cssClass="span6"/>
+                    </div>
+                    <div>
+                        <c:if test="${hostFamily.id > 0}">
+                            <a data-toggle="modal" href="#mapModal" class="btn secondary span9">map</a>
+                        </c:if>
+                    </div>
                 </div>
 
             </fieldset>
