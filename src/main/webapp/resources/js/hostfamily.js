@@ -13,7 +13,8 @@ function usePointFromPostcode(postcode, callbackFunction) {
     localSearch.execute(postcode + ", UK");
 }
 
-function initialize() {
+$("#mapModalLink").click(function() {
+    alert("Handler for .click() called.");
     var mapOptions = {
         center: new google.maps.LatLng(-34.397, 150.644),
         zoom: 8,
@@ -21,4 +22,4 @@ function initialize() {
     };
     var map = new google.maps.Map(document.getElementById("map_canvas"),
         mapOptions);
-}
+});

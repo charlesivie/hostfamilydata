@@ -110,7 +110,7 @@
                     <div class="span2">
                         <div>
                             <c:if test="${hostFamily.id > 0}">
-                                <a data-toggle="modal" href="#mapModal" class="btn secondary span9" onclick="initialize()">map</a>
+                                <a data-toggle="modal" href="#mapModal" class="btn secondary span9" id="mapModalLink">map</a>
                             </c:if>
                         </div>
                     </div>

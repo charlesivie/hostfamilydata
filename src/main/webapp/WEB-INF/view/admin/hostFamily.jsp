@@ -121,7 +121,7 @@
                     </div>
                     <div>
                         <c:if test="${hostFamily.id > 0}">
-                            <a data-toggle="modal" href="#mapModal" class="btn secondary span9">map</a>
+                            <a data-toggle="modal" href="#mapModal" class="btn secondary span9" id="mapModalLink">map</a>
                         </c:if>
                     </div>
                 </div>
@@ -193,6 +193,9 @@
             <h3 id="mapModalLabel">showing map
                 for ${hostFamily.firstName} ${hostFamily.lastName} ${hostFamily.postCode}</h3>
         </div>
+
+        <div id="map_canvas" style="width:100%; height:100%"></div>
+
         <div class="modal-footer">
             <div class="span4">
                 <button class="btn secondary" data-dismiss="modal">close</button>
