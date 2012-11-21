@@ -1,0 +1,14 @@
+.error {
+    color: #b94a48;
+}
+.error .checkbox,
+.error .radio,
+.error input,
+.error select,
+.error textarea {
+    color: #b94a48;
+    border-color: #b94a48;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}

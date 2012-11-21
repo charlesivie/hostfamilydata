@@ -1,17 +1,23 @@
 package uk.co.hostfamilydata.domain;
 
-import org.springframework.roo.addon.javabean.RooJavaBean;
-import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
-import org.springframework.roo.addon.tostring.RooToString;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-import javax.persistence.Lob;
+import javax.persistence.*;
 
-@RooJavaBean
-@RooToString
-@RooJpaActiveRecord
+@Entity
+@ToString
+@EqualsAndHashCode(exclude = {"id"})
+@Getter
+@Setter
 public class HostFamily {
 
-    private String firstName;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	private String firstName;
     private String lastName;
     private String firstName2;
     private String lastName2;
@@ -24,6 +30,7 @@ public class HostFamily {
     private int numberOfStudents;
     @Lob
     private String notes;
+	@Column(columnDefinition = "BIT")
     private boolean confirmed;
     private String whatToShow;
     private String email;
