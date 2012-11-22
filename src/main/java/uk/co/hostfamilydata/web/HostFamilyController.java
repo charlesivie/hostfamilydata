@@ -30,7 +30,7 @@ public class HostFamilyController {
 		HostFamily hostFamily = hostFamilyRepository.findOne(id);
 
 		modelAndView.addObject("hostFamily", hostFamily);
-		modelAndView.addObject("hostFamilies", hostFamilyRepository.findAll(new Sort(Sort.Direction.ASC, "lastName")));
+		modelAndView.addObject("hostFamilies", hostFamilyRepository.findAll(new Sort(Sort.Direction.ASC, "firstName2")));
 
 		return modelAndView;
 	}
@@ -38,7 +38,7 @@ public class HostFamilyController {
 	@RequestMapping(value = "/hostFamily", method = RequestMethod.GET)
 	public ModelAndView get() {
 		ModelAndView modelAndView = new ModelAndView("admin/hostFamily", "hostFamily", new HostFamily());
-		modelAndView.addObject("hostFamilies", hostFamilyRepository.findAll(new Sort(Sort.Direction.ASC, "lastName")));
+		modelAndView.addObject("hostFamilies", hostFamilyRepository.findAll(new Sort(Sort.Direction.ASC, "firstName2")));
 		return modelAndView;
 	}
 
@@ -50,7 +50,7 @@ public class HostFamilyController {
         HostFamily hostFamily = hostFamilyRepository.findOne(id);
 
         modelAndView.addObject("hostFamily", hostFamily);
-        modelAndView.addObject("hostFamilies", hostFamilyRepository.findByConfirmed(true, new Sort(Sort.Direction.ASC, "lastName")));
+        modelAndView.addObject("hostFamilies", hostFamilyRepository.findByConfirmed(true, new Sort(Sort.Direction.ASC, "firstName2")));
 
         return modelAndView;
     }
@@ -58,7 +58,7 @@ public class HostFamilyController {
     @RequestMapping(value = "/hostFamily/confirmed", method = RequestMethod.GET)
     public ModelAndView getConfirmed() {
         ModelAndView modelAndView = new ModelAndView("admin/hostFamilyConfirmed", "hostFamily", new HostFamily());
-        modelAndView.addObject("hostFamilies", hostFamilyRepository.findByConfirmed(true, new Sort(Sort.Direction.ASC, "lastName")));
+        modelAndView.addObject("hostFamilies", hostFamilyRepository.findByConfirmed(true, new Sort(Sort.Direction.ASC, "firstName2")));
         return modelAndView;
     }
 
@@ -70,7 +70,7 @@ public class HostFamilyController {
 			hostFamilyRepository.save(hostFamily);
 		}
 
-		model.addAttribute("hostFamilies", hostFamilyRepository.findAll(new Sort(Sort.Direction.ASC, "lastName")));
+		model.addAttribute("hostFamilies", hostFamilyRepository.findAll(new Sort(Sort.Direction.ASC, "firstName2")));
 
 		return "/admin/hostFamily";
 	}

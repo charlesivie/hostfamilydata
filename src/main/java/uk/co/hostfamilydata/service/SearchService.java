@@ -27,7 +27,7 @@ public class SearchService {
 				queryString,
 				queryString,
 				queryString,
-                new Sort(Sort.Direction.ASC, "lastName")
+                new Sort(Sort.Direction.ASC, "firstName2")
 
 		);
 	}
