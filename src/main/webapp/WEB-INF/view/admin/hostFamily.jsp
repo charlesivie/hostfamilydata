@@ -34,8 +34,7 @@
                     <c:forEach items="${hostFamilies}" var="hostFamily">
                         <li>
                             <a href="<c:url value="/hostFamily/${hostFamily.id}" />">
-                                    ${hostFamily.firstName}, ${hostFamily.lastName}, ${hostFamily.phone}
-                                - ${hostFamily.firstName2}, ${hostFamily.lastName2}, ${hostFamily.phone2}
+                                    ${hostFamily.firstName2}, ${hostFamily.firstName}, ${hostFamily.lastName2}, ${hostFamily.lastName}- ${hostFamily.phone}, ${hostFamily.phone2}
                             </a>
                         </li>
                     </c:forEach>
@@ -46,7 +45,7 @@
 
         <form:form commandName="hostFamily" cssClass="span8 well">
             <legend>
-                    ${hostFamily.id>0?'Edit ':'Insert New '} ${hostFamily.firstName} ${hostFamily.lastName}
+                    ${hostFamily.id>0?'Edit ':'Insert New '} ${hostFamily.firstName} ${hostFamily.firstName2}
             </legend>
             <fieldset>
 
@@ -62,7 +61,7 @@
                             </div>
                             <div class="span4">
                                 <form:label path="lastName">last name</form:label>
-                                <form:input cssClass="span12" path="lastName" label="lastName"/>
+                                <form:input cssClass="span12" path="firstName2" label="firstName2"/>
                             </div>
                             <div class="span4">
                                 <form:label path="profession">profession</form:label>
@@ -72,7 +71,7 @@
 
                         <div>
                             <div class="span4">
-                                <form:input cssClass="span12" path="firstName2" label="firstName2"/>
+                                <form:input cssClass="span12" path="lastName" label="lastName"/>
                             </div>
                             <div class="span4">
                                 <form:input cssClass="span12" path="lastName2" label="lastName2"/>
@@ -157,7 +156,7 @@
             <button type="button" class="close" data-dismiss="modal"
                     aria-hidden="true">&times;</button>
             <h3 id="deleteModalLabel">deleting host
-                family ${hostFamily.firstName} ${hostFamily.lastName} ${hostFamily.firstName2} ${hostFamily.lastName2}</h3>
+                family ${hostFamily.firstName} ${hostFamily.firstName2} ${hostFamily.lastName} ${hostFamily.lastName2}</h3>
         </div>
         <div class="modal-body">
             are you sure? this cannot be un-done.

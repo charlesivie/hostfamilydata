@@ -44,8 +44,7 @@
                             <c:forEach items="${hostFamilies}" var="hostFamily">
                                 <li>
                                     <a href="<c:url value="/search/?hostFamilyId=${hostFamily.id}&queryString=${queryString}" />">
-                                            ${hostFamily.firstName}, ${hostFamily.lastName}, ${hostFamily.phone}
-                                        - ${hostFamily.firstName2}, ${hostFamily.lastName2}, ${hostFamily.phone2}
+                                            ${hostFamily.firstName}, ${hostFamily.firstName2} ${hostFamily.lastName}, ${hostFamily.lastName2} - ${hostFamily.phone}, ${hostFamily.phone2}
                                     </a>
                                 </li>
                             </c:forEach>
@@ -65,7 +64,7 @@
         <c:if test="${hostFamily.id > 0}">
 
             <form:form commandName="hostFamily" cssClass="span8 well">
-                <legend>${hostFamily.firstName} ${hostFamily.lastName}</legend>
+                <legend>${hostFamily.firstName} ${hostFamily.firstName2}</legend>
                 <fieldset>
                     <div class="span6">
 
@@ -77,7 +76,7 @@
                                 </div>
                                 <div class="span4">
                                     <form:label path="lastName">last name</form:label>
-                                    <form:input cssClass="span12" path="lastName" label="lastName" disabled="true"/>
+                                    <form:input cssClass="span12" path="firstName2" label="firstName2" disabled="true"/>
                                 </div>
                                 <div class="span4">
                                     <form:label path="profession">profession</form:label>
@@ -87,7 +86,7 @@
 
                             <div>
                                 <div class="span4">
-                                    <form:input cssClass="span12" path="firstName2" label="firstName2" disabled="true"/>
+                                    <form:input cssClass="span12" path="lastName" label="lastName" disabled="true"/>
                                 </div>
                                 <div class="span4">
                                     <form:input cssClass="span12" path="lastName2" label="lastName2" disabled="true"/>
@@ -146,28 +145,6 @@
     <footer>
         <p>&copy; CIcodeRS 2012</p>
     </footer>
-
-</div>
-
-<div class="span8">
-
-    <div id="mapModal" class="modal hide fade" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel"
-         aria-hidden="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal"
-                    aria-hidden="true">&times;</button>
-            <h3 id="mapModalLabel">showing map
-                for ${hostFamily.firstName} ${hostFamily.lastName} ${hostFamily.postCode}</h3>
-        </div>
-
-
-        <div class="modal-footer">
-            <div class="span4">
-                <button class="btn secondary" data-dismiss="modal">close</button>
-            </div>
-        </div>
-    </div>
 
 </div>
 
