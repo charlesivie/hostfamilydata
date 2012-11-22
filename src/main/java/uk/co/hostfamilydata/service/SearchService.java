@@ -1,6 +1,7 @@
 package uk.co.hostfamilydata.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import uk.co.hostfamilydata.dao.HostFamilyRepository;
 import uk.co.hostfamilydata.domain.HostFamily;
@@ -25,7 +26,8 @@ public class SearchService {
 				queryString,
 				queryString,
 				queryString,
-				queryString
+				queryString,
+                new Sort(Sort.Direction.ASC, "lastName")
 
 		);
 	}

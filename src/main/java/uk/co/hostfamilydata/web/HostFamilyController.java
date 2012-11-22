@@ -1,6 +1,7 @@
 package uk.co.hostfamilydata.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,7 +30,7 @@ public class HostFamilyController {
 		HostFamily hostFamily = hostFamilyRepository.findOne(id);
 
 		modelAndView.addObject("hostFamily", hostFamily);
-		modelAndView.addObject("hostFamilies", hostFamilyRepository.findAll());
+		modelAndView.addObject("hostFamilies", hostFamilyRepository.findAll(new Sort(Sort.Direction.ASC, "lastName")));
 
 		return modelAndView;
 	}
@@ -37,7 +38,7 @@ public class HostFamilyController {
 	@RequestMapping(value = "/hostFamily", method = RequestMethod.GET)
 	public ModelAndView get() {
 		ModelAndView modelAndView = new ModelAndView("admin/hostFamily", "hostFamily", new HostFamily());
-		modelAndView.addObject("hostFamilies", hostFamilyRepository.findAll());
+		modelAndView.addObject("hostFamilies", hostFamilyRepository.findAll(new Sort(Sort.Direction.ASC, "lastName")));
 		return modelAndView;
 	}
 
@@ -49,7 +50,7 @@ public class HostFamilyController {
         HostFamily hostFamily = hostFamilyRepository.findOne(id);
 
         modelAndView.addObject("hostFamily", hostFamily);
-        modelAndView.addObject("hostFamilies", hostFamilyRepository.findByConfirmed(true));
+        modelAndView.addObject("hostFamilies", hostFamilyRepository.findByConfirmed(true, new Sort(Sort.Direction.ASC, "lastName")));
 
         return modelAndView;
     }
@@ -57,7 +58,7 @@ public class HostFamilyController {
     @RequestMapping(value = "/hostFamily/confirmed", method = RequestMethod.GET)
     public ModelAndView getConfirmed() {
         ModelAndView modelAndView = new ModelAndView("admin/hostFamilyConfirmed", "hostFamily", new HostFamily());
-        modelAndView.addObject("hostFamilies", hostFamilyRepository.findByConfirmed(true));
+        modelAndView.addObject("hostFamilies", hostFamilyRepository.findByConfirmed(true, new Sort(Sort.Direction.ASC, "lastName")));
         return modelAndView;
     }
 
@@ -69,7 +70,7 @@ public class HostFamilyController {
 			hostFamilyRepository.save(hostFamily);
 		}
 
-		model.addAttribute("hostFamilies", hostFamilyRepository.findAll());
+		model.addAttribute("hostFamilies", hostFamilyRepository.findAll(new Sort(Sort.Direction.ASC, "lastName")));
 
 		return "/admin/hostFamily";
 	}
