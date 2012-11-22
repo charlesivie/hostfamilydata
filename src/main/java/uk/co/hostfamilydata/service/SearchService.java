@@ -15,15 +15,17 @@ public class SearchService {
 
 	public List<HostFamily> search(String queryString) {
 
+        queryString = "%"+queryString+"%";
+
 		return hostFamilyRepository.findByAddressLikeOrAddress2LikeOrAddress3LikeOrFirstNameLikeOrLastNameLikeOrFirstName2LikeOrLastName2Like(
 
-				"%" + queryString.replace(" ","%") + "%",
-				"%" + queryString.replace(" ","%") + "%",
-				"%" + queryString.replace(" ","%") + "%",
-				"%" + queryString.replace(" ","%") + "%",
-				"%" + queryString.replace(" ","%") + "%",
-				"%" + queryString.replace(" ","%") + "%",
-				"%" + queryString.replace(" ","%")  + "%"
+				queryString,
+				queryString,
+				queryString,
+				queryString,
+				queryString,
+				queryString,
+				queryString
 
 		);
 	}

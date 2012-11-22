@@ -22,10 +22,12 @@
 
         <div class="span4">
 
-            <form action="<c:url value='/search' />" class="well">
+            <form action="<c:url value='/search/new' />" class="well">
 
                 <fieldset class="span8">
-                    <input type="hidden" name="hostFamilyId" value="${hostFamily.id}">
+                    <c:if test="${hostFamily.id > 0}">
+                        <input type="hidden" name="hostFamilyId" value="${hostFamily.id}">
+                    </c:if>
                     <input name="queryString" class="span12" value="${queryString}"/>
                 </fieldset>
                 <button type="submit" class="btn span4">search</button>
@@ -36,16 +38,25 @@
 
                 <ul class="nav nav-list">
 
-                    <li class="nav-header">Host Families...</li>
+                    <c:choose>
+                        <c:when test="${fn:length(hostFamilies)>0}">
+                            <li class="nav-header">Host Families...</li>
+                            <c:forEach items="${hostFamilies}" var="hostFamily">
+                                <li>
+                                    <a href="<c:url value="/search/?hostFamilyId=${hostFamily.id}&queryString=${queryString}" />">
+                                            ${hostFamily.firstName}, ${hostFamily.lastName}, ${hostFamily.phone}
+                                        - ${hostFamily.firstName2}, ${hostFamily.lastName2}, ${hostFamily.phone2}
+                                    </a>
+                                </li>
+                            </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                            <c:if test="${fn:length(queryString)>0}">
+                                <li class="error">sorry, no results</li>
+                            </c:if>
+                        </c:otherwise>
+                    </c:choose>
 
-                    <c:forEach items="${hostFamilies}" var="hostFamily">
-                        <li>
-                            <a href="<c:url value="/search/?hostFamilyId=${hostFamily.id}" />">
-                                    ${hostFamily.firstName}, ${hostFamily.lastName}, ${hostFamily.phone}
-                                - ${hostFamily.firstName2}, ${hostFamily.lastName2}, ${hostFamily.phone2}
-                            </a>
-                        </li>
-                    </c:forEach>
 
                 </ul>
             </div>
