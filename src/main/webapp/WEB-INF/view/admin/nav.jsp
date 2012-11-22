@@ -17,6 +17,7 @@
                 <ul class="nav">
                     <li><a href="<c:url value="/hostFamily" />">host families</a></li>
                     <li><a href="<c:url value="/hostFamily/confirmed" />">show confirmed</a></li>
+                    <li><a href="<c:url value="/search" />">search</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>

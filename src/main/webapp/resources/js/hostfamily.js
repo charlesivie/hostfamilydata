@@ -4,7 +4,7 @@ function initialize(address) {
     geocoder = new google.maps.Geocoder();
     var latlng = new google.maps.LatLng(51.380384, -0.354010);
     var mapOptions = {
-        zoom: 12,
+        zoom: 13,
         center: latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
