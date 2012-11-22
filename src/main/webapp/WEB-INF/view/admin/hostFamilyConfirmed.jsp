@@ -7,7 +7,10 @@
 
 <html>
 <jsp:include page="head.jsp"/>
-<body onload="initialize('${hostFamily.postCode}')" onunload="GUnload()">
+
+<c:set var="onloadScript">onload="initialize('${hostFamily.postCode}')"</c:set>
+
+<body ${fn:length(hostFamily.postCode)>0?onloadScript:''}>
 <jsp:include page="nav.jsp"/>
 
 
@@ -40,7 +43,7 @@
             <form:form commandName="hostFamily" cssClass="span8 well">
                 <legend>${hostFamily.firstName} ${hostFamily.lastName}</legend>
                 <fieldset>
-                    <div class="span9">
+                    <div class="span6">
 
                         <div class="span12">
                             <div>
@@ -60,15 +63,12 @@
 
                             <div>
                                 <div class="span4">
-                                    <form:label path="firstName2">first name</form:label>
                                     <form:input cssClass="span12" path="firstName2" label="firstName2" disabled="true"/>
                                 </div>
                                 <div class="span4">
-                                    <form:label path="lastName2">last name</form:label>
                                     <form:input cssClass="span12" path="lastName2" label="lastName2" disabled="true"/>
                                 </div>
                                 <div class="span4">
-                                    <form:label path="profession2">profession</form:label>
                                     <form:input cssClass="span12" path="profession2" label="profession2" disabled="true"/>
                                 </div>
                             </div>
@@ -107,17 +107,8 @@
 
                     </div>
 
-                    <div class="span2">
-                        <div>
-                            <c:if test="${hostFamily.id > 0}">
-                                <a data-toggle="modal"
-                                   href="#mapModal"
-                                   class="btn secondary span9"
-                                   id="mapModalLink"
-                                        onclick="doSomething()">map</a>
-                            </c:if>
-                        </div>
-                    </div>
+                    <div id="map_canvas" class="span4" style="width: 350px; height: 300px"></div>
+
 
                 </fieldset>
             </form:form>
@@ -144,7 +135,6 @@
                 for ${hostFamily.firstName} ${hostFamily.lastName} ${hostFamily.postCode}</h3>
         </div>
 
-        <div id="map" style="width: 500px; height: 300px"></div>
 
         <div class="modal-footer">
             <div class="span4">

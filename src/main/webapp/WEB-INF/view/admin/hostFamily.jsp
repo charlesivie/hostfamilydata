@@ -7,7 +7,11 @@
 
 <html>
 <jsp:include page="head.jsp"/>
-<body>
+
+<c:set var="onloadScript">onload="initialize('${hostFamily.postCode}')"</c:set>
+
+<body ${fn:length(hostFamily.postCode)>0?onloadScript:''}>
+
 <jsp:include page="nav.jsp"/>
 
 
@@ -30,7 +34,8 @@
                     <c:forEach items="${hostFamilies}" var="hostFamily">
                         <li>
                             <a href="<c:url value="/hostFamily/${hostFamily.id}" />">
-                                    ${hostFamily.firstName}, ${hostFamily.lastName}, ${hostFamily.phone} - ${hostFamily.firstName2}, ${hostFamily.lastName2}, ${hostFamily.phone2}
+                                    ${hostFamily.firstName}, ${hostFamily.lastName}, ${hostFamily.phone}
+                                - ${hostFamily.firstName2}, ${hostFamily.lastName2}, ${hostFamily.phone2}
                             </a>
                         </li>
                     </c:forEach>
@@ -47,7 +52,7 @@
 
                 <form:hidden path="id"/>
 
-                <div class="span9">
+                <div class="span6">
 
                     <div class="span12">
                         <div>
@@ -67,15 +72,12 @@
 
                         <div>
                             <div class="span4">
-                                <form:label path="firstName2">first name</form:label>
                                 <form:input cssClass="span12" path="firstName2" label="firstName2"/>
                             </div>
                             <div class="span4">
-                                <form:label path="lastName2">last name</form:label>
                                 <form:input cssClass="span12" path="lastName2" label="lastName2"/>
                             </div>
                             <div class="span4">
-                                <form:label path="profession2">profession</form:label>
                                 <form:input cssClass="span12" path="profession2" label="profession2"/>
                             </div>
                         </div>
@@ -114,17 +116,12 @@
 
                 </div>
 
-                <div class="span2">
-                    <div>
-                        <form:label path="confirmed" cssClass="span6">confirmed </form:label>
-                        <form:checkbox path="confirmed" cssClass="span6"/>
-                    </div>
-                    <div>
-                        <c:if test="${hostFamily.id > 0}">
-                            <a data-toggle="modal" href="#mapModal" class="btn secondary span9" id="mapModalLink">map</a>
-                        </c:if>
-                    </div>
+                <div class="span4">
+                    <form:label path="confirmed" cssClass="checkbox"><form:checkbox
+                            path="confirmed"/> confirmed?</form:label>
+                    <div id="map_canvas" style="margin-top:20px; width: 350px; height: 300px"></div>
                 </div>
+
 
             </fieldset>
 
@@ -175,30 +172,6 @@
                     <input type="hidden" name="_method" value="DELETE"/>
                     <button type="submit" class="btn btn-primary">delete</button>
                 </form>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-
-<div class="span8">
-
-    <div id="mapModal" class="modal hide fade" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel"
-         aria-hidden="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal"
-                    aria-hidden="true">&times;</button>
-            <h3 id="mapModalLabel">showing map
-                for ${hostFamily.firstName} ${hostFamily.lastName} ${hostFamily.postCode}</h3>
-        </div>
-
-        <div id="map_canvas" style="width:100%; height:100%"></div>
-
-        <div class="modal-footer">
-            <div class="span4">
-                <button class="btn secondary" data-dismiss="modal">close</button>
             </div>
         </div>
     </div>
