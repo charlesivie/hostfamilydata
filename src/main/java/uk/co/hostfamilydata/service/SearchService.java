@@ -18,8 +18,9 @@ public class SearchService {
 
         queryString = "%"+queryString+"%";
 
-		return hostFamilyRepository.findByAddressLikeOrAddress2LikeOrAddress3LikeOrFirstNameLikeOrLastNameLikeOrFirstName2LikeOrLastName2Like(
+		return hostFamilyRepository.findByAddressLikeOrAddress2LikeOrAddress3LikeOrFirstNameLikeOrLastNameLikeOrFirstName2LikeOrLastName2LikeOrPostCodeLike(
 
+				queryString,
 				queryString,
 				queryString,
 				queryString,
