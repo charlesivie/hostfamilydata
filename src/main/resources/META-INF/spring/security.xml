@@ -7,14 +7,18 @@
                     http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
     <http use-expressions="true">
-        <intercept-url pattern="/**" access="isAuthenticated()"/>
+        <intercept-url pattern="/**" access="isAuthenticated()" method="GET"/>
+        <intercept-url pattern="/**" access="hasAnyRole('ROLE_ADMIN')" method="POST"/>
+        <intercept-url pattern="/**" access="hasAnyRole('ROLE_ADMIN')" method="PUT"/>
+        <intercept-url pattern="/**" access="hasAnyRole('ROLE_ADMIN')" method="DELETE"/>
         <form-login default-target-url="/" always-use-default-target="true"/>
     </http>
 
     <authentication-manager>
         <authentication-provider>
             <user-service>
-                <user name="${SPRING_SECURITY_USER}" password="${SPRING_SECURITY_PASSWORD}" authorities="ROLE_SUPERVISOR" />
+                <user name="${USER_ADMIN_USERNAME}" password="${USER_ADMIN_PASSWORD}" authorities="ROLE_ADMIN"/>
+                <user name="${USER_READ_ONLY_USERNAME}" password="${USER_READ_ONLY_PASSWORD}" authorities="ROLE_READ_ONLY"/>
             </user-service>
         </authentication-provider>
     </authentication-manager>
